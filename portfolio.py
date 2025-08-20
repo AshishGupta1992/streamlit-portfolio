@@ -48,36 +48,36 @@ elif page == "Skills":
 # Experience Section
 # ---------------------------
 elif page == "Experience":
-    st.title("💼 Work Experience")
+    st.title("📅 Career Timeline")
 
-    st.subheader("Analytics Manager – MCube Financial Services (2020–Present)")
-    st.write("""
-    - Spearheaded SaaS solution development with AI/ML models  
-    - Managed loan portfolio monitoring dashboards (Tableau) → reduced time 70%  
-    - Automated financial data pipelines with Python + AWS → 75% manual effort saved  
-    - ML-based document classification with 97% accuracy  
-    """)
+    with st.expander("2020 – Present | Analytics Manager @ MCube Financial Services"):
+        st.write("""
+        - Spearheaded SaaS solution development with AI/ML models  
+        - Managed loan portfolio monitoring dashboards (Tableau) → reduced time 70%  
+        - Automated financial data pipelines with Python + AWS → 75% manual effort saved  
+        - ML-based document classification with 97% accuracy  
+        """)
 
-    st.subheader("Tech Lead (Business Analyst) – Pinkerton (2019–2020)")
-    st.write("""
-    - Led team of 6, created Tableau dashboards consolidating data  
-    - Handled C-level stakeholder management (CEO, VP Finance)  
-    - Revenue prediction using ML → generated $5M revenue  
-    - Built OCR system for ID documents → reduced time 1 day → 2 hours  
-    """)
+    with st.expander("2019 – 2020 | Tech Lead (Business Analyst) @ Pinkerton"):
+        st.write("""
+        - Led team of 6, created Tableau dashboards consolidating data  
+        - Handled C-level stakeholder management (CEO, VP Finance)  
+        - Revenue prediction using ML → generated $5M revenue  
+        - Built OCR system for ID documents → reduced time 1 day → 2 hours  
+        """)
 
-    st.subheader("Data Analyst – Zycus (2017–2019)")
-    st.write("""
-    - Built reporting infra with Tableau + SQL for recruitment metrics  
-    - Reduced hiring TAT by 15 days  
-    - Automated offer letter generation (Python Flask) → 80% faster process  
-    """)
+    with st.expander("2017 – 2019 | Data Analyst @ Zycus"):
+        st.write("""
+        - Built reporting infra with Tableau + SQL for recruitment metrics  
+        - Reduced hiring TAT by 15 days  
+        - Automated offer letter generation (Python Flask) → 80% faster process  
+        """)
 
-    st.subheader("Associate Analyst – IBM (2015–2017)")
-    st.write("""
-    - Data extraction from DB2, SQL warehouses  
-    - Built statistical models + Tableau dashboards for inventory forecasting  
-    """)
+    with st.expander("2015 – 2017 | Associate Analyst @ IBM"):
+        st.write("""
+        - Data extraction from DB2, SQL warehouses  
+        - Built statistical models + Tableau dashboards for inventory forecasting  
+        """)
 
 # ---------------------------
 # Education Section
@@ -105,3 +105,4 @@ elif page == "Download Resume":
             file_name="Ashish_Gupta_Resume.docx",
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         )
+

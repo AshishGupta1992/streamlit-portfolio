@@ -1,88 +1,107 @@
-# portfolio_app.py
+# portfolio_resume_app.py
 import streamlit as st
-import pandas as pd
-import numpy as np
-import plotly.express as px
 
-# ---- SIDEBAR NAVIGATION ----
+# ---------------------------
+# Sidebar Navigation
+# ---------------------------
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["About Me", "Projects", "Dashboards", "Blog"])
+page = st.sidebar.radio("Go to", ["Profile", "Skills", "Experience", "Education", "Download Resume"])
 
-# ---- ABOUT ME ----
-if page == "About Me":
-    st.title("👋 Hi, I'm Ashish Gupta")
-    st.subheader("Data Analyst | 10+ Years of Experience")
-
-    st.write("""
-    Welcome to my portfolio!  
-    I'm a data analyst with 10 years of experience in AdTech, Retail Media, and Finance.  
-    Skilled in **SQL, Python, Tableau, PySpark, and Data Visualization**.  
-    This site is an interactive showcase of my skills and projects.
-    """)
-
-    st.download_button("📄 Download My Resume", "Resume_Ashish_Gupta.pdf")
-
-    st.markdown("🔗 [LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com) | [Kaggle](https://www.kaggle.com)")
-
-# ---- PROJECTS ----
-elif page == "Projects":
-    st.title("📂 Projects Showcase")
-
-    with st.expander("SQL Query Optimization"):
-        st.write("""
-        - Before: 120 sec execution → After: 5 sec  
-        - Used CTE restructuring + indexing  
-        - Increased efficiency by 24x
-        """)
-
-    with st.expander("Retail Media Campaign Dashboard"):
-        st.write("""
-        Built an interactive dashboard to track impressions, clicks, spend & conversions.  
-        Automated reporting pipeline with Python + SQL + Tableau.
-        """)
-
-    with st.expander("Finance SIP Calculator"):
-        st.write("""
-        Developed a SIP (Systematic Investment Plan) calculator to visualize portfolio growth.  
-        Useful for investors to compare different mutual funds.
-        """)
-
-# ---- DASHBOARDS ----
-elif page == "Dashboards":
-    st.title("📊 Interactive Dashboards")
-
-    st.subheader("Sample Campaign Performance Dashboard")
-
-    # Dummy dataset
-    df = pd.DataFrame({
-        "Campaign": ["A", "B", "C", "D"],
-        "Impressions": [12000, 18000, 15000, 22000],
-        "Clicks": [300, 450, 380, 600],
-        "Spend": [5000, 7000, 6000, 9000]
-    })
-    df["CTR"] = df["Clicks"] / df["Impressions"]
-
-    fig = px.bar(df, x="Campaign", y=["Impressions", "Clicks", "Spend"], 
-                 barmode="group", title="Campaign Performance")
-    st.plotly_chart(fig)
-
-    st.write("### CTR Table")
-    st.dataframe(df)
-
-# ---- BLOG ----
-elif page == "Blog":
-    st.title("📝 Blog / Articles")
+# ---------------------------
+# Profile Section
+# ---------------------------
+if page == "Profile":
+    st.title("👨‍💻 Ashish Gupta")
+    st.subheader("Analytics Manager | Data Analyst | 10+ Years Experience")
 
     st.markdown("""
-    ### 📌 Basics of PySpark for Data Analysts
-    PySpark is a great tool to handle large-scale data. It helps analysts process TBs of data efficiently.  
-    Example: `df.groupBy("column").agg({"metric":"sum"})`
-
-    ---
-
-    ### 📌 SQL Best Practices
-    - Use CTEs for readability  
-    - Avoid SELECT * in production  
-    - Index frequently joined columns  
-
+    Data-driven Analytics Manager with 8+ years of experience; I excel at converting raw data into valuable insights 
+    that drive business decisions.  
+    Proficient in **Tableau, Power BI, MySQL, ETL processes, and AWS**, I specialize in data visualization, reporting, 
+    and ML model development to propel business growth.  
+    With a knack for leadership, I have a proven record of effectively managing and nurturing data analyst teams.
     """)
+
+    st.markdown("📞 Phone: **7022450444**")  
+    st.markdown("📧 Email: [ashish.gp10@gmail.com](mailto:ashish.gp10@gmail.com)")  
+    st.markdown("🔗 [LinkedIn](https://www.linkedin.com/in/ashishgupta92/)")  
+
+    st.success("Invited by Tableau & CIMR, Mumbai, as a guest lecturer to present analytics and ML work.")
+
+# ---------------------------
+# Skills Section
+# ---------------------------
+elif page == "Skills":
+    st.title("🛠️ Skills")
+
+    skills = [
+        "Tableau", "Power BI", "Python (Numpy, Pandas, Scikit Learn)", "MySQL", "ETL",
+        "AWS", "Machine Learning (AI/ML)", "Flask API", "VBA Macros",
+        "JIRA", "Data Visualization", "Data Driven Decision Making", "Stakeholder Management"
+    ]
+
+    st.write(", ".join(skills))
+
+    st.progress(85)  # Just to show progress-like effect
+
+# ---------------------------
+# Experience Section
+# ---------------------------
+elif page == "Experience":
+    st.title("💼 Work Experience")
+
+    st.subheader("Analytics Manager – MCube Financial Services (2020–Present)")
+    st.write("""
+    - Spearheaded SaaS solution development with AI/ML models  
+    - Managed loan portfolio monitoring dashboards (Tableau) → reduced time 70%  
+    - Automated financial data pipelines with Python + AWS → 75% manual effort saved  
+    - ML-based document classification with 97% accuracy  
+    """)
+
+    st.subheader("Tech Lead (Business Analyst) – Pinkerton (2019–2020)")
+    st.write("""
+    - Led team of 6, created Tableau dashboards consolidating data  
+    - Handled C-level stakeholder management (CEO, VP Finance)  
+    - Revenue prediction using ML → generated $5M revenue  
+    - Built OCR system for ID documents → reduced time 1 day → 2 hours  
+    """)
+
+    st.subheader("Data Analyst – Zycus (2017–2019)")
+    st.write("""
+    - Built reporting infra with Tableau + SQL for recruitment metrics  
+    - Reduced hiring TAT by 15 days  
+    - Automated offer letter generation (Python Flask) → 80% faster process  
+    """)
+
+    st.subheader("Associate Analyst – IBM (2015–2017)")
+    st.write("""
+    - Data extraction from DB2, SQL warehouses  
+    - Built statistical models + Tableau dashboards for inventory forecasting  
+    """)
+
+# ---------------------------
+# Education Section
+# ---------------------------
+elif page == "Education":
+    st.title("🎓 Education")
+
+    st.write("""
+    - **Post Graduation Program (Product Management, 2024)** – IIM Indore  
+    - **B.Tech IT (2015)** – JUIT Solan, Himachal Pradesh  
+    - **Higher Secondary (2011)** – Abhinav Public School, Delhi (CBSE)  
+    - **Senior Secondary (2009)** – DAV Public School, Delhi (CBSE)  
+    """)
+
+# ---------------------------
+# Resume Download
+# ---------------------------
+elif page == "Download Resume":
+    st.title("📄 Download My Resume")
+
+    with open("Ashish Gupta Resume.docx", "rb") as file:
+        btn = st.download_button(
+            label="Download Resume (Word)",
+            data=file,
+            file_name="Ashish_Gupta_Resume.docx",
+            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        )

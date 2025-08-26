@@ -11,20 +11,24 @@ page = st.sidebar.radio("Go to", ["Profile", "Skills", "Experience", "Education"
 # Profile Section
 # ---------------------------
 if page == "Profile":
-    st.title("👨‍💻 Ashish Gupta")
-    st.subheader("Analytics Manager | Data Analyst | 10+ Years Experience")
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        st.image("profile_pic.png", width=180)  # <-- add your image in same folder
+    with col2:
+        st.title("👨‍💻 Ashish Gupta")
+        st.subheader("Analytics Manager | Data Analyst | 10+ Years Experience")
+        st.markdown("📧 [ashish.gp10@gmail.com](mailto:ashish.gp10@gmail.com)")
+        st.markdown("🔗 [LinkedIn](https://www.linkedin.com/in/ashishgupta92/)")
+        st.markdown("📞 Phone: **7022450444**")
 
+    st.markdown("---")
     st.markdown("""
     Data-driven Analytics Manager with 8+ years of experience; I excel at converting raw data into valuable insights 
     that drive business decisions.  
     Proficient in **Tableau, Power BI, MySQL, ETL processes, and AWS**, I specialize in data visualization, reporting, 
     and ML model development to propel business growth.  
     With a knack for leadership, I have a proven record of effectively managing and nurturing data analyst teams.
-    """)
-
-    st.markdown("📞 Phone: **7022450444**")  
-    st.markdown("📧 Email: [ashish.gp10@gmail.com](mailto:ashish.gp10@gmail.com)")  
-    st.markdown("🔗 [LinkedIn](https://www.linkedin.com/in/ashishgupta92/)")  
+    """) 
 
     st.success("Invited by Tableau & CIMR, Mumbai, as a guest lecturer to present analytics and ML work.")
 
@@ -34,15 +38,20 @@ if page == "Profile":
 elif page == "Skills":
     st.title("🛠️ Skills")
 
-    skills = [
-        "Tableau", "Power BI", "Python (Numpy, Pandas, Scikit Learn)", "MySQL", "ETL",
-        "AWS", "Machine Learning (AI/ML)", "Flask API", "VBA Macros",
-        "JIRA", "Data Visualization", "Data Driven Decision Making", "Stakeholder Management"
-    ]
+    skills = {
+        "Python (Numpy, Pandas, Scikit-Learn)": 90,
+        "SQL / MySQL": 85,
+        "Tableau / Power BI": 95,
+        "Machine Learning": 80,
+        "AWS": 75,
+        "ETL & Data Pipelines": 85,
+        "Stakeholder Management": 90
+    }
 
-    st.write(", ".join(skills))
+    for skill, percent in skills.items():
+        st.write(f"**{skill}**")
+        st.progress(percent)
 
-    st.progress(85)  # Just to show progress-like effect
 
 # ---------------------------
 # Experience Section
@@ -93,6 +102,21 @@ elif page == "Education":
     """)
 
 # ---------------------------
+# Portfolio Projects Section
+# ---------------------------
+elif page == "Portfolio Projects":
+    st.title("📊 Portfolio Projects")
+
+    projects = {
+        "Sales Forecasting with ML": "https://share.streamlit.io/ashish/sales-forecast",
+        "Tableau Dashboard – Retail Analytics": "https://public.tableau.com/xyz",
+        "SQL Case Study – Customer Churn": "https://github.com/ashish/churn-sql"
+    }
+
+    for name, link in projects.items():
+        st.markdown(f"🔗 [{name}]({link})")
+
+# ---------------------------
 # Resume Download
 # ---------------------------
 elif page == "Download Resume":
@@ -105,4 +129,5 @@ elif page == "Download Resume":
             file_name="Ashish_Gupta_Resume.docx",
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         )
+
 

@@ -126,9 +126,10 @@ elif page == "Download Resume":
         btn = st.download_button(
             label="Download Resume",
             data=file,
-            file_name="Ashish_Gupta_Resume.docx",
+            file_name="Ashish_Gupta_Resume.pdf",
             mime="application/pdf"
         )
+
 
 
 

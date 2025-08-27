@@ -13,7 +13,7 @@ page = st.sidebar.radio("Go to", ["Profile", "Skills", "Experience", "Education"
 if page == "Profile":
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.image("profile_pic.png", width=180)  # <-- add your image in same folder
+        st.image("profile_image.jpeg", width=180)  # <-- add your image in same folder
     with col2:
         st.title("👨‍💻 Ashish Gupta")
         st.subheader("Analytics Manager | Data Analyst | 10+ Years Experience")
@@ -129,5 +129,6 @@ elif page == "Download Resume":
             file_name="Ashish_Gupta_Resume.docx",
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         )
+
 
 

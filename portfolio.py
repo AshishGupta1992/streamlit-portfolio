@@ -122,13 +122,14 @@ elif page == "Portfolio Projects":
 elif page == "Download Resume":
     st.title("📄 Download My Resume")
 
-    with open("Ashish Gupta Resume 10 years.docx", "rb") as file:
+    with open("Ashish Gupta Resume 10 years.pdf", "rb") as file:
         btn = st.download_button(
-            label="Download Resume (Word)",
+            label="Download Resume",
             data=file,
             file_name="Ashish_Gupta_Resume.docx",
-            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            mime="application/pdf"
         )
+
 
 
 
